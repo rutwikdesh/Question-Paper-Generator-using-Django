@@ -35,58 +35,70 @@ class GeneratePdf(View):
         print('GenertePaperRequest2')
         l = []
         Year = request.GET.get('Year')
-        sub = request.GET.get('subject')
-        nques = request.GET.get('nques')
-
         Year = int(Year)
+        sub = request.GET.get('subject')
 
-        unit_one = request.GET.get('1', '') == 'on'
-        if unit_one:
-            l.append(1)
-        unit_two = request.GET.get('2', '') == 'on'
-        if unit_two:
-            l.append(2)
-        unit_three = request.GET.get('3', '') == 'on'
-        if unit_three:
-            l.append(3)
-        unit_four = request.GET.get('4', '') == 'on'
-        if unit_four:
-            l.append(4)
-        unit_five = request.GET.get('5', '') == 'on'
-        if unit_five:
-            l.append(5)
-        unit_six = request.GET.get('6', '') == 'on'
-        if unit_six:
-            l.append(6)
+        m1_1 = request.GET.get('m1_1')
+        q1_1 = request.GET.get('q1_1')
+        q1_2 = request.GET.get('q1_2')
+        q1_3 = request.GET.get('q1_3')
+
+        fquestions = []
+        xx = ""
+
+        x = 1
+        if m1_1:
+            a = questionBank.objects.filter(year=Year, subname=sub, unit=int(q1_1)
+        
+
+        # unit_one = request.GET.get('1', '') == 'on'
+        # if unit_one:
+        #     l.append(1)
+        # unit_two = request.GET.get('2', '') == 'on'
+        # if unit_two:
+        #     l.append(2)
+        # unit_three = request.GET.get('3', '') == 'on'
+        # if unit_three:
+        #     l.append(3)
+        # unit_four = request.GET.get('4', '') == 'on'
+        # if unit_four:
+        #     l.append(4)
+        # unit_five = request.GET.get('5', '') == 'on'
+        # if unit_five:
+        #     l.append(5)
+        # unit_six = request.GET.get('6', '') == 'on'
+        # if unit_six:
+        #     l.append(6)
 
 
-        a1 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[0]))
-        if len(l)>1:
-            a2 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[1]))
-        if len(l)>2:
-            a3 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[2]))
-        if len(l)>3:
-            a4 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[3]))
-        if len(l)>4:
-            a5 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[4]))
-        if len(l)>5:
-            a6 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[5]))
+        # a1 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[0]))
+        # if len(l)>1:
+        #     a2 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[1]))
+        # if len(l)>2:
+        #     a3 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[2]))
+        # if len(l)>3:
+        #     a4 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[3]))
+        # if len(l)>4:
+        #     a5 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[4]))
+        # if len(l)>5:
+        #     a6 = questionBank.objects.filter(year=Year, subname=sub, unit=int(l[5]))
 
-        print(l)
+        # print(l)
 
-        final_list1 = []
-        z = 1
-        for i in a1:
-            k = "Q" + str(z) + ". " + i.question + " " + str(i.marks) + " marks"
-            final_list1.append(k)
-            z=z+1            
+        # final_list1 = []
+        # z = 1
+        # for i in a1:
+        #     k = "Q" + str(z) + ". " + i.question + " " + str(i.marks) + " marks"
+        #     final_list1.append(k)
+        #     z=z+1            
 
         subject_name = sub
+
         data = {
-            "a1":final_list1,
             "title":subject_name,
             "year":Year,
-            "nques": nques,
+            "fquestions":fquestions,
+            "pointer":xx,
         }
         pdf = render_to_pdf('pdf/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
