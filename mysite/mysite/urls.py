@@ -17,4 +17,6 @@ urlpatterns = [
     path('deleteSuccess',views.deleteSuccess, name='deleteSuccess'),
     # path('generatePaper2', views.generatePaper2, name='generatePaper2'),
     path('pdf/paper.html', GeneratePdf.as_view()),
+    path('intermediate.html',views.intermediate, name='intermediate'),
+    path('intermediate2.html',views.intermediate2, name='intermediate2'),
 ]

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QPD</title>
+</head>
+<body>
+    <form action="pdf/paper.html">
+        {% csrf_token %}
+        <p>Select Year:</p>
+            <select id="Year" name="Year">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            
+            <br>
+            
+            <br>
+
+            <p>Subject:</p>
+            <input list="subjects" name="subject">
+            <datalist id="subjects">
+                <option value="ISEE">
+                <option value="DBMS">
+                <option value="DELD">
+                <option value="COA">
+                <option value="TOC">
+                <option value="DSA">
+                <option value="SEPM">
+                <option value="DM">
+            </datalist><br>
+
+            <br>
+        {%if nq1%}
+            <p><b>For Question 1:</b></p>
+            <label>Enter no. of Marks for sub-question 1</label>
+            <input type="number" name="m1_1" id="m1_1"><br>
+
+            Which unit to consider for this question?
+
+            <select id="q1_1" name="q1_1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+
+            {%if nq1 > '1' or nq1 == '2'%}
+                <label>Enter no. of Marks for sub-question 2</label>
+                <input type="number" name="m1_2" id="m1_2"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q1_2" name="q1_2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+
+            <br>
+
+            {%if nq1 > '2' or nq1 == '3'%}
+                <label>Enter no. of Marks for sub-question 3</label>
+                <input type="number" name="m1" id="m1"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q1_3" name="q1_3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+        {%endif%}
+
+
+
+        {%if nq2%}
+            <p><b>For Question 2:</b></p>
+            <label>Enter no. of Marks for sub-question 1</label>
+            <input type="number" name="m2_1" id="m2_1"><br>
+
+            Which unit to consider for this question?
+
+            <select id="q2_1" name="q2_1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <br>
+
+            {%if nq2 > '1' or nq2 == '2'%}
+                <label>Enter no. of Marks for sub-question 2</label>
+                <input type="number" name="m2_2" id="m2_2"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q2_2" name="q2_2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+
+            <br>
+
+            {%if nq2 > '2' or nq2 == '3'%}
+                <label>Enter no. of Marks for sub-question 3</label>
+                <input type="number" name="m2_3" id="m2_3"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q2_3" name="q2_3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+        {%endif%}
+
+        {%if nq3%}
+            <p><b>For Question 3:</b></p>
+            <label>Enter no. of Marks for sub-question 1</label>
+            <input type="number" name="m3_1" id="m3_1"><br>
+
+            Which unit to consider for this question?
+
+            <select id="q3_1" name="q3_1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+
+            {%if nq3 > '1' or nq3 == '2'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m3_2" id="m3_2"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q3_2" name="q3_2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+
+
+            <br>
+
+            {%if nq3 > '2' or nq3 == '3'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m3_3" id="m3_3"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q3_3" name="q3_3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+        {%endif%}
+
+        {%if nq4%}
+            <p><b>For Question 4:</b></p>
+            <label>Enter no. of Marks for sub-question 1</label>
+            <input type="number" name="m4_1" id="m4_1"><br>
+
+            Which unit to consider for this question?
+
+            <select id="q4_1" name="q4_1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+
+            {%if nq4 > '1' or nq4 == '2'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m4_2" id="m4_2"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q4_2" name="q4_2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+
+
+            <br>
+
+            {%if nq4 > '2' or nq4 == '3'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m4_3" id="m4_3"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q4_3" name="q4_3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+        {%endif%}
+
+        {%if nq5%}
+            <p><b>For Question 5:</b></p>
+            <label>Enter no. of Marks for sub-question 1</label>
+            <input type="number" name="m5_1" id="m5_1"><br>
+
+            Which unit to consider for this question?
+
+            <select id="q5_1" name="q5_1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+
+            {%if nq5 > '1' or nq5 == '2'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m5_2" id="m5_2"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q5_2" name="q5_2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+
+
+            <br>
+
+            {%if nq5 > '2' or nq5 == '3'%}
+                <label>Enter no. of Marks for sub-question 1</label>
+                <input type="number" name="m5_3" id="m5_3"><br>
+
+                Which unit to consider for this question?
+
+                <select id="q5_3" name="q5_3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            {%endif%}
+        {%endif%}
+        
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

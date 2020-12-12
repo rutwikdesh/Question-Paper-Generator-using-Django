@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="middle">
-        <form action="pdf/paper.html">
-            <p>Select Year:</p>
+        <form action="intermediate.html" method="POST">
+            {% csrf_token %}
+            <!-- <p>Select Year:</p>
             <select id="Year" name="Year">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -47,16 +48,33 @@
                 <option value="DSA">
                 <option value="SEPM">
                 <option value="DM">
-            </datalist><br>
-
-            <br>
+            </datalist><br> -->
 
             <label for="nques">Total No. of Questions</label><br>
             <input type="number" id="nques" name="nques"><br>
-
+<!-- 
             <br>
+            <br><br><br>
+            {%if nques > '2'%}
+                <p>Heelo!!!!!</p>
+            {%endif%}<br><br><br> -->
 
-
+            <!-- <label>Enter the no. of Questions in Q1:</label><br>
+            <input type="number" id="nq1" name="nq1"><br>
+            <label>Enter the no. of Questions in Q2:</label><br>
+            <input type="number" id="nq2" name="nq2"><br>
+            <label>Enter the no. of Questions in Q3:</label><br>
+            <input type="number" id="nq3" name="nq3"><br>
+            <label>Enter the no. of Questions in Q4:</label><br>
+            <input type="number" id="nq4" name="nq4"><br>
+            <label>Enter the no. of Questions in Q5:</label><br>
+            <input type="number" id="nq5" name="nq5"><br>
+            <label>Enter the no. of Questions in Q6:</label><br>
+            <input type="number" id="nq6" name="nq6"><br>
+            <label>Enter the no. of Questions in Q7:</label><br>
+            <input type="number" id="nq7" name="nq7"><br>
+            <label>Enter the no. of Questions in Q8:</label><br>
+            <input type="number" id="nq8" name="nq8"><br> -->
 
             <button class="glow-on-hover" type="submit">Generate Paper</button>
             <input type="reset">

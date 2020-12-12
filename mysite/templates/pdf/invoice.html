@@ -37,16 +37,28 @@
         </style>
     </head>
     <body>
-        <div class='wrapper'>
-            <div class='header'>
-                <p class='title'>{{title}}</p>
-            </div>
         <div>
-        <div class='details'>
-            {%for i in a1%}
-                {{i}}<br>
-            {%endfor%}
+            <div class='wrapper'>
+                <div class='header'>
+                    <p class='title'>{{title}}</p>
+                </div>
+            <div>
+            <div class='details'>
+                {%for i in a1%}
+                    {{i}}<br>
+                {%endfor%}
+            <p>Hello World</p>
+            </div>
+            {%if nques > '3'%}
+                <label>Enter the no. of questions in Question 1:</label>
+                <input type="number" id="nq1" name="nq1"><br>
+
+                <label>Enter the no. of questions in Question 1:</label>
+                <input type="number" id="nq1" name="nq1"><br>
+
+                <label>Enter the no. of questions in Question 1:</label>
+                <input type="number" id="nq" name="nq1"><br>
+            {%endif%}
         </div>
-    </div>
     </body>
 </html>

@@ -12,6 +12,24 @@ from django.views.generic import View
 
 from mysite.utils import render_to_pdf #created in step 4
 
+def intermediate(request):
+    nques = request.POST.get('nques')
+    params = {"nques":nques}
+    return render(request, 'intermediate.html', params)
+
+def intermediate2(request):
+    nq1 = request.POST.get('nq1')
+    nq2 = request.POST.get('nq2')
+    nq3 = request.POST.get('nq3')
+    nq4 = request.POST.get('nq4')
+    nq5 = request.POST.get('nq5')
+    nq6 = request.POST.get('nq6')
+    nq7 = request.POST.get('nq7')
+    nq8 = request.POST.get('nq8')
+    nq1 = int(nq1)
+    params = {"nq1":range(1,nq1), "nq2":nq2, "nq3":nq3, "nq4":nq4}
+    return render(request, 'intermediate2.html', params)
+
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
         print('GenertePaperRequest2')
@@ -68,6 +86,7 @@ class GeneratePdf(View):
             "a1":final_list1,
             "title":subject_name,
             "year":Year,
+            "nques": nques,
         }
         pdf = render_to_pdf('pdf/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
@@ -164,7 +183,11 @@ def about(request):
 
 
 def addQuestion(request):
-    return render(request, 'addQuestion.html')
+    if request.GET.get('search'):
+        search = request.GET.get('search')
+    params = {"a":search}
+    return HttpResponse(search)
+    # return render(request, 'addQuestion.html', params)
 
 def addSuccess(request):
     questionBan = questionBank()
