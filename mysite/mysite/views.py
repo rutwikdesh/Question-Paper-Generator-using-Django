@@ -23,11 +23,7 @@ def intermediate2(request):
     nq3 = request.POST.get('nq3')
     nq4 = request.POST.get('nq4')
     nq5 = request.POST.get('nq5')
-    nq6 = request.POST.get('nq6')
-    nq7 = request.POST.get('nq7')
-    nq8 = request.POST.get('nq8')
-    nq1 = int(nq1)
-    params = {"nq1":range(1,nq1), "nq2":nq2, "nq3":nq3, "nq4":nq4}
+    params = {"nq1":nq1, "nq2":nq2, "nq3":nq3, "nq4":nq4, "nq5":nq5}
     return render(request, 'intermediate2.html', params)
 
 class GeneratePdf(View):
@@ -40,16 +36,192 @@ class GeneratePdf(View):
 
         m1_1 = request.GET.get('m1_1')
         q1_1 = request.GET.get('q1_1')
+        m1_2 = request.GET.get('m1_2')
         q1_2 = request.GET.get('q1_2')
+        m1_3 = request.GET.get('m1_3')
         q1_3 = request.GET.get('q1_3')
 
-        fquestions = []
-        xx = ""
+        m2_1 = request.GET.get('m2_1')
+        q2_1 = request.GET.get('q2_1')
+        m2_2 = request.GET.get('m2_2')
+        q2_2 = request.GET.get('q2_2')
+        m2_3 = request.GET.get('m2_3')
+        q2_3 = request.GET.get('q2_3')
 
-        x = 1
+        m3_1 = request.GET.get('m3_1')
+        q3_1 = request.GET.get('q3_1')
+        m3_2 = request.GET.get('m3_2')
+        q3_2 = request.GET.get('q3_2')
+        m3_3 = request.GET.get('m3_3')
+        q3_3 = request.GET.get('q3_3')
+
+        m4_1 = request.GET.get('m4_1')
+        q4_1 = request.GET.get('q4_1')
+        m4_2 = request.GET.get('m4_2')
+        q4_2 = request.GET.get('q4_2')
+        m4_3 = request.GET.get('m4_3')
+        q4_3 = request.GET.get('q4_3')
+
+        m5_1 = request.GET.get('m5_1')
+        q5_1 = request.GET.get('q5_1')
+        m5_2 = request.GET.get('m5_2')
+        q5_2 = request.GET.get('q5_2')
+        m5_3 = request.GET.get('m5_3')
+        q5_3 = request.GET.get('q5_3')
+
+        my_list = ['a)','b)','c)','d)']
+
+        fquestions1 = []
+        qno1 = []
+        mks1 = []
+
         if m1_1:
-            a = questionBank.objects.filter(year=Year, subname=sub, unit=int(q1_1)
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
+            question = a[random.randrange(1,len(a))]
+            fquestions1.append(question)
+            mks1.append(m1_1)
+
+        if m1_2:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_2), marks=int(m1_2))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions1:
+                    fquestions1.append(question)
+                    mks1.append(m1_2)
+                    break
+
+        if m1_3:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_3), marks=int(m1_3))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions1:
+                    fquestions1.append(question)
+                    mks1.append(m1_3)
+                    break
         
+        qno1 = len(fquestions1)
+
+        fquestions2 = []
+        qno2 = []
+        mks2 = []
+
+        if m2_1:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q2_1), marks=int(m2_1))
+            question = a[random.randrange(1,len(a))]
+            fquestions2.append(question)
+            mks2.append(m2_1)
+
+        if m2_2:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q2_2), marks=int(m2_2))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions1:
+                    fquestions2.append(question)
+                    mks2.append(m2_2)
+                    break
+
+        if m2_3:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q2_3), marks=int(m2_3))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions2:
+                    fquestions2.append(question)
+                    mks2.append(m2_3)
+                    break
+        
+        qno2 = len(fquestions2)
+
+        fquestions3 = []
+        qno3 = []
+        mks3 = []
+
+        if m3_1:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
+            question = a[random.randrange(1,len(a))]
+            fquestions3.append(question)
+            mks3.append(m3_1)
+
+        if m3_2:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q3_2), marks=int(m3_2))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions3:
+                    fquestions3.append(question)
+                    mks3.append(m3_2)
+                    break
+
+        if m3_3:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q3_3), marks=int(m3_3))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions3:
+                    fquestions3.append(question)
+                    mks3.append(m3_3)
+                    break
+        
+        qno3 = len(fquestions3)
+
+        fquestions4 = []
+        qno4 = []
+        mks4 = []
+
+        if m4_1:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_1), marks=int(m4_1))
+            question = a[random.randrange(1,len(a))]
+            fquestions4.append(question)
+            mks4.append(m4_1)
+
+        if m4_2:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_2), marks=int(m4_2))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions4:
+                    fquestions4.append(question)
+                    mks4.append(m4_2)
+                    break
+
+        if m4_3:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_3), marks=int(m1_3))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions4:
+                    fquestions4.append(question)
+                    mks4.append(m4_3)
+                    break
+        
+        qno4 = len(fquestions4)
+
+        fquestions5 = []
+        qno5 = []
+        mks5 = []
+
+        if m5_1:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q5_1), marks=int(m5_1))
+            question = a[random.randrange(1,len(a))]
+            fquestions5.append(question)
+            mks5.append(m5_1)
+
+        if m5_2:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q5_2), marks=int(m5_2))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions5:
+                    fquestions5.append(question)
+                    mks5.append(m5_2)
+                    break
+
+        if m5_3:
+            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q5_3), marks=int(m5_3))
+            while(1):
+                question = a[random.randrange(1,len(a))]
+                if question not in fquestions5:
+                    fquestions5.append(question)
+                    mks5.append(m5_3)
+                    break
+        
+        qno5 = len(fquestions5)
+        
+
 
         # unit_one = request.GET.get('1', '') == 'on'
         # if unit_one:
@@ -97,8 +269,21 @@ class GeneratePdf(View):
         data = {
             "title":subject_name,
             "year":Year,
-            "fquestions":fquestions,
-            "pointer":xx,
+            "fquestions1":fquestions1,
+            "mks1":mks1,
+            "qno1":qno1,
+            "fquestions2":fquestions2,
+            "mks2":mks2,
+            "qno2":qno2,
+            "fquestions3":fquestions3,
+            "mks3":mks3,
+            "qno3":qno3,
+            "fquestions4":fquestions4,
+            "mks4":mks4,
+            "qno4":qno4,
+            "fquestions5":fquestions5,
+            "mks5":mks5,
+            "qno5":qno5,
         }
         pdf = render_to_pdf('pdf/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
