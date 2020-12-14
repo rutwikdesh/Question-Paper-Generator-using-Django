@@ -180,14 +180,14 @@ class GeneratePdf(View):
                     mks4.append(m4_2)
                     break
 
-        if m4_3:
-            a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_3), marks=int(m1_3))
-            while(1):
-                question = a[random.randrange(1,len(a))]
-                if question not in fquestions4:
-                    fquestions4.append(question)
-                    mks4.append(m4_3)
-                    break
+        # if m4_3:
+        #     a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_3), marks=int(m1_3))
+        #     while(1):
+        #         question = a[random.randrange(1,len(a))]
+        #         if question not in fquestions4:
+        #             fquestions4.append(question)
+        #             mks4.append(m4_3)
+        #             break
         
         qno4 = len(fquestions4)
 
