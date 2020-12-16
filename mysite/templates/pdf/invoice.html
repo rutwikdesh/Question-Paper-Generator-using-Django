@@ -49,50 +49,54 @@
             <p>Subject: {{title}}</p>
             <p>Subject Code: {{sub_}} </p>
             <p>Department: </p>
-            <p>Q.1 Answer the following</p>
             {%if qno1 > 0%}
+            <p>Q.1 Answer the following</p>   
                 {%for i in fquestions1%}
                     <b>{{i.question}}</b>
                     <b>{{i.marks}} marks</b><br>
                 {%endfor%}
+            <br>
             {%endif%}
             <br>
-            <br>
-            <p>Q.2 Answer the following</p>
             {%if qno2 > 0%}
+            <p>Q.2 Answer the following</p>
+            
                 {%for i in fquestions2%}
                     <b>{{i.question}}</b>
                     <b>{{i.marks}} marks</b><br>
                 {%endfor%}
+            <br>
             {%endif%}
             <br>
-            <br>
-            <p>Q.3 Answer the following</p>
             {%if qno3 > 0%}
+            <p>Q.3 Answer the following</p>
+            
                 {%for i in fquestions3%}
                     <b>{{i.question}}</b>
                     <b>{{i.marks}} marks</b><br>
-                {%endfor%}
+                {%endfor%} 
+            <br>
             {%endif%}
             <br>
-            <br>
-            <p>Q.4 Answer the following</p>
             {%if qno4 > 0%}
+            <p>Q.4 Answer the following</p>
+            
                 {%for i in fquestions4%}
                     <b>{{i.question}}</b>
                     <b>{{i.marks}} marks</b><br>
                 {%endfor%}
+            <br>
             {%endif%}
             <br>
-            <br>
-            <p>Q.5 Answer the following</p>
             {%if qno5 > 0%}
+            <p>Q.5 Answer the following</p>
+            
                 {%for i in fquestions5%}
                     <b>{{i.question}}</b>
                     <b>{{i.marks}} marks</b><br>
                 {%endfor%}
-            {%endif%}
             <br>
+            {%endif%}
             <br>
             </div>
         </div>
