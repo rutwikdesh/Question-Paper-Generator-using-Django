@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from loginapp.models import questionBank
 import random
 from docx import Document
-import datetime
+from datetime import datetime
 
 import pdb
 
@@ -30,9 +30,19 @@ class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
         print('GenertePaperRequest2')
         l = []
+        dat = datetime.today().strftime("%Y-%m-%d")
         Year = request.GET.get('Year')
         Year = int(Year)
         sub = request.GET.get('subject')
+        ayear = request.GET.get('ayear')
+        dep = request.GET.get('dep')
+        test_name = request.GET.get('test_name')
+        term = request.GET.get('term')
+        tmarks = request.GET.get('tmarks')
+        subcode = request.GET.get('subcode')
+        rec_no = request.GET.get('rec_no')
+        div = request.GET.get('div')
+        ttime = request.GET.get('ttime')
 
         m1_1 = request.GET.get('m1_1')
         q1_1 = request.GET.get('q1_1')
@@ -269,10 +279,29 @@ class GeneratePdf(View):
         #     final_list1.append(k)
         #     z=z+1            
 
-        subject_name = sub
+        sub = request.GET.get('subject')
+        ayear = request.GET.get('ayear')
+        dep = request.GET.get('dep')
+        test_name = request.GET.get('test_name')
+        term = request.GET.get('term')
+        tmarks = request.GET.get('tmarks')
+        subcode = request.GET.get('subcode')
+        rec_no = request.GET.get('rec_no')
+        div = request.GET.get('div')
+        ttime = request.GET.get('ttime')
 
         data = {
-            "title":subject_name,
+            "sub":sub,
+            "date":dat,
+            "ayear":ayear,
+            "dep":dep,
+            "test_name":test_name,
+            "term":term,
+            "tmarks":tmarks,
+            "subcode":subcode,
+            "rec_no":rec_no,
+            "div":div,
+            "ttime":ttime,
             "year":Year,
             "fquestions1":fquestions1,
             "mks1":mks1,

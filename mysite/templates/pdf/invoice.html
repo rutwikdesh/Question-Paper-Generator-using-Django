@@ -2,35 +2,51 @@
 <html>
     <head>
         <title>{{title}} Paper</title>
-        <style type="text/css">
+        <style>
             body {
                 font-weight: 200;
                 font-size: 14px;
             }
-            .header {
-                font-size: 20px;
-                font-weight: 100;
-                text-align: center;
-                color: #007cae;
+
+            .table1,
+            .table2,
+            .table3,
+            .table4 {
+                width: 100%;
             }
-            .title {
-                font-size: 22px;
-                font-weight: 100;
-               /* text-align: right;*/
-               padding: 10px 20px 0px 20px;
+
+            table.table1 td {
+                padding: 2px 2px;
             }
-            .title span {
-                color: #007cae;
+
+            table.table1 th {
+                padding: 5px auto;
             }
-            td {
-                padding: 10px;
-                border: 1px solid black;
-                border-collapse: collapse;
+
+            table.table2 th {
+                padding: 5px 5px;
+                background-color: #d3d3d3;
+            }
+
+            table.table3 td {
+                padding: 10px 0;
+                text-align: left;
+            }
+
+            table.table4 td {
+                padding: 10px auto;
+                background-color: #d3d3d3;
+            }
+
+            .child {
+                max-width: 90%;
+                margin: 0 auto;
             }
             .details {
                 padding: 10px 20px 0px 20px;
                 text-align: left !important;
-                /*margin-left: 40%;*/
+                max-width: 90%;
+                margin: 0 auto;
             }
             .hrItem {
                 border: none;
@@ -42,30 +58,72 @@
         </style>
     </head>
     <body>
-        <div>
-            <div class='wrapper'>
-                <div class='header'>
-                    <p class='title'>Pimpri Chincwad College of Engineering and Research</p>
-                </div>
-            <div>
-            <div class='details'>
-            <p>Time: {{time}}</p>
-            <p>Maximum Marks: {{max_mks}}</p>
-            <p>Subject: {{title}}</p>
-            <p>Subject Code: {{sub_}} </p>
-            <p>Department: </p>
+        <div class="child">
+            <table class="table1" border="1" cellspacing="0">
+                <tr>
+                <th style="width:100px"><img src="http://pccoer.com/images/main-logo.png" width="200" height="200"/></th>
+                <td style="text-align: center">
+                    Pimpri Chinchwad Education Trusts <br>
+                    <b>Pimpri Chinchwad College of Engineering & Research, Ravet, Pune</b>
+                </td>
+                <th style="width:100px">
+                    Record No. {{rec_no}}
+                </th>
+                </tr>
+            </table>
+            <table class="table2" border="1" cellspacing="0">
+                <tr>
+                    <th>
+                        Academic <br/>
+                        Year:{{ayear}}
+                    </th>
+                    <th>{{test_name}}</th>
+                    <th>Term: {{term}}</th>
+                </tr>
+            </table>
+
+            <table class="table3">
+                <tr>
+                    <td><b>Department: {{dep}}</b></td>
+                    <td><b>Class: {{Year}}</b></td>
+                    <td><b>Div: {{div}}</b></td>
+                </tr>
+                <tr>
+                    <td><b>Subject: {{sub}}</b></td>
+                    <td><b>Maximum Marks: {{tmarks}}</b></td>
+                    <td><b>Time: {{ttime}}</b></td>
+                </tr>
+            </table>
+            <table class="table4">
+                <tr>
+                    <td><b>Subject Code: {{subcode}}</b></td>
+                    <td><b>Date: {{dat}}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="details">
+            <p>
+                <b>
+                    <i>Note: 
+                        <br> 1. Solve Que 1 or Que2 and Que3 or Que4 and Que5 or Que6
+                        <br>
+                        2. Figure to the right side indicates full marks.
+                    </i>
+                </b>
+            </p>
             {%if qno1 > 0%}
             <p>Q.1 Answer the following</p>
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px">
+                    <td style="width:70px; padding: 50%;">
                         <b>{{j}}</b>
                     </td>
-                    <td>
+                    <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px">
+                    <td style="width:110px; padding: 40%;">
                         <b>{{i.marks}} marks</b><br>
                     </td>
                 </tr>
@@ -75,16 +133,16 @@
             <br>
             {%if qno2 > 0%}
             <p>Q.2 Answer the following</p>
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
                     <td style="width:70px">
                         <b>{{j}}</b>
                     </td>
-                    <td>
+                    <td padding: 50%;>
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px">
+                    <td style="width:100px" padding: 50%;>
                         <b>{{i.marks}} marks</b><br>
                     </td>
                 </tr>
@@ -94,16 +152,16 @@
             <br>
             {%if qno3 > 0%}
             <p>Q.3 Answer the following</p>
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px">
+                    <td style="width:70px" padding: 50%;>
                         <b>{{j}}</b>
                     </td>
-                    <td>
+                    <td padding: 50%;>
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px">
+                    <td style="width:100px; padding: 50%;">
                         <b>{{i.marks}} marks</b><br>
                     </td>
                 </tr>
@@ -114,16 +172,16 @@
             <br>
             {%if qno4 > 0%}
             <p>Q.4 Answer the following</p>
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px">
+                    <td style="width:70px; padding: 50%;">
                         <b>{{j}}</b>
                     </td>
-                    <td>
+                    <td padding: 50%;>
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px">
+                    <td style="width:100px; padding: 50%;">
                         <b>{{i.marks}} marks</b><br>
                     </td>
                 </tr>
@@ -134,16 +192,16 @@
             <br>
             {%if qno5 > 0%}
             <p>Q.5 Answer the following</p>
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px">
+                    <td style="width:70px; padding: 50%;">
                         <b>{{j}}</b>
                     </td>
-                    <td>
+                    <td padding: 50%;>
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px">
+                    <td style="width:100px; padding: 50%;">
                         <b>{{i.marks}} marks</b><br>
                     </td>
                 </tr>
@@ -152,7 +210,6 @@
             <br>
             {%endif%}
             <br>
-            </div>
         </div>
     </body>
 </html>
