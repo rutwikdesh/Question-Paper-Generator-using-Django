@@ -24,7 +24,7 @@
             {%for i in a%}
             <tr>
                 <td>
-                    {{i.id}}
+                    <b>{{i.id}}</b>
                 </td>
                 <td>
                     {{i.question}}
@@ -41,8 +41,8 @@
             </tr>
             {%endfor%}
         </table>
-        
-        Enter the id to delete:
+        <br>
+        <b>Enter the id to delete:</b>
         <input type="number" name='idtodelete'><br>
         <button type="submit">Submit</button>
     </form>

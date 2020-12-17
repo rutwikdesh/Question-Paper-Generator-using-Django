@@ -22,6 +22,11 @@
             .title span {
                 color: #007cae;
             }
+            td {
+                padding: 10px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
             .details {
                 padding: 10px 20px 0px 20px;
                 text-align: left !important;
@@ -50,12 +55,22 @@
             <p>Subject Code: {{sub_}} </p>
             <p>Department: </p>
             {%if qno1 > 0%}
-            <p>Q.1 Answer the following</p>   
-                {%for i in fquestions1%}
-                    <b>{{i.question}}</b>
-                    <b>{{i.marks}} marks</b><br>
+            <p>Q.1 Answer the following</p>
+            <table>
+                {%for i,j in fquestions1%}
+                <tr>
+                    <td style="width:70px">
+                        <b>{{j}}</b>
+                    </td>
+                    <td>
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:100px">
+                        <b>{{i.marks}} marks</b><br>
+                    </td>
+                </tr>
                 {%endfor%}
-            <br>
+            </table>
             {%endif%}
             <br>
             {%if qno2 > 0%}

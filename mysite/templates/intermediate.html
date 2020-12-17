@@ -17,8 +17,10 @@
         <label for="nq1">Enter the no. of sub-questions in Question 1:</label>
         <input type="number" id="nq1" name="nq1"><br>
 
-        <label for="nq2">Enter the no. of sub-questions in Question 2:</label>
-        <input type="number" id="nq2" name="nq2"><br>
+        {%if nques > '1' or nques == '2' %}
+            <label for="nq2">Enter the no. of sub-questions in Question 2:</label>
+            <input type="number" id="nq2" name="nq2"><br>
+        {%endif%}
 
         {%if nques > '2' or nques == '3' %}
             <label for="nq3">Enter the no. of sub-questions in Question 3:</label>

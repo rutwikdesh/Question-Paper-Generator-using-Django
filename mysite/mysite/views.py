@@ -70,6 +70,7 @@ class GeneratePdf(View):
         q5_3 = request.GET.get('q5_3')
 
         my_list = ['a)','b)','c)','d)']
+        ggs = 0
 
         fquestions1 = []
         qno1 = []
@@ -78,16 +79,17 @@ class GeneratePdf(View):
         if m1_1:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
             question = a[random.randrange(1,len(a))]
-            fquestions1.append(question)
+            fquestions1.append(tuple((question,my_list[ggs])))
             mks1.append(m1_1)
+            ggs += 1
 
         if m1_2:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_2), marks=int(m1_2))
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions1:
-                    fquestions1.append(question)
-                    mks1.append(m1_2)
+                    fquestions1.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
 
         if m1_3:
@@ -95,11 +97,15 @@ class GeneratePdf(View):
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions1:
-                    fquestions1.append(question)
-                    mks1.append(m1_3)
+                    fquestions1.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
         
         qno1 = len(fquestions1)
+        ggs = 0
+            
+
+        ggs = 0
 
         fquestions2 = []
         qno2 = []
@@ -283,6 +289,7 @@ class GeneratePdf(View):
             "qno4":qno4,
             "fquestions5":fquestions5,
             "mks5":mks5,
+            "my_list":my_list,
             "qno5":qno5,
         }
         pdf = render_to_pdf('pdf/invoice.html', data)
