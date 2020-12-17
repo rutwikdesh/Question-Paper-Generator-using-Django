@@ -80,7 +80,6 @@ class GeneratePdf(View):
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
             question = a[random.randrange(1,len(a))]
             fquestions1.append(tuple((question,my_list[ggs])))
-            mks1.append(m1_1)
             ggs += 1
 
         if m1_2:
@@ -114,16 +113,16 @@ class GeneratePdf(View):
         if m2_1:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q2_1), marks=int(m2_1))
             question = a[random.randrange(1,len(a))]
-            fquestions2.append(question)
-            mks2.append(m2_1)
+            fquestions2.append(tuple((question,my_list[ggs])))
+            ggs += 1
 
         if m2_2:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q2_2), marks=int(m2_2))
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions1:
-                    fquestions2.append(question)
-                    mks2.append(m2_2)
+                    fquestions2.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
 
         if m2_3:
@@ -131,8 +130,8 @@ class GeneratePdf(View):
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions2:
-                    fquestions2.append(question)
-                    mks2.append(m2_3)
+                    fquestions2.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
         
         qno2 = len(fquestions2)
@@ -144,16 +143,16 @@ class GeneratePdf(View):
         if m3_1:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
             question = a[random.randrange(1,len(a))]
-            fquestions3.append(question)
-            mks3.append(m3_1)
+            fquestions3.append(tuple((question,my_list[ggs])))
+            ggs += 1
 
         if m3_2:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q3_2), marks=int(m3_2))
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions3:
-                    fquestions3.append(question)
-                    mks3.append(m3_2)
+                    fquestions3.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
 
         if m3_3:
@@ -161,8 +160,8 @@ class GeneratePdf(View):
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions3:
-                    fquestions3.append(question)
-                    mks3.append(m3_3)
+                    fquestions3.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
         
         qno3 = len(fquestions3)
@@ -174,16 +173,16 @@ class GeneratePdf(View):
         if m4_1:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_1), marks=int(m4_1))
             question = a[random.randrange(1,len(a))]
-            fquestions4.append(question)
-            mks4.append(m4_1)
+            fquestions4.append(tuple((question,my_list[ggs])))
+            ggs += 1
 
         if m4_2:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q4_2), marks=int(m4_2))
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions4:
-                    fquestions4.append(question)
-                    mks4.append(m4_2)
+                    fquestions4.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
 
         # if m4_3:
@@ -204,16 +203,16 @@ class GeneratePdf(View):
         if m5_1:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q5_1), marks=int(m5_1))
             question = a[random.randrange(1,len(a))]
-            fquestions5.append(question)
-            mks5.append(m5_1)
+            fquestions5.append(tuple((question,my_list[ggs])))
+            ggs += 1
 
         if m5_2:
             a = questionBank.objects.filter(year=int(Year), subname=sub, unit=int(q5_2), marks=int(m5_2))
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions5:
-                    fquestions5.append(question)
-                    mks5.append(m5_2)
+                    fquestions5.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
 
         if m5_3:
@@ -221,8 +220,8 @@ class GeneratePdf(View):
             while(1):
                 question = a[random.randrange(1,len(a))]
                 if question not in fquestions5:
-                    fquestions5.append(question)
-                    mks5.append(m5_3)
+                    fquestions5.append(tuple((question,my_list[ggs])))
+                    ggs += 1
                     break
         
         qno5 = len(fquestions5)
