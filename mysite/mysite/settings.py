@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'loginapp',
     'import_export',
+    'datetime'
 ]
 
 MIDDLEWARE = [

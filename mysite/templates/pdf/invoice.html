@@ -85,7 +85,7 @@
             <table class="table3">
                 <tr>
                     <td><b>Department: {{dep}}</b></td>
-                    <td><b>Class: {{Year}}</b></td>
+                    <td><b>Class: {{year}}</b></td>
                     <td><b>Div: {{div}}</b></td>
                 </tr>
                 <tr>
@@ -97,7 +97,7 @@
             <table class="table4">
                 <tr>
                     <td><b>Subject Code: {{subcode}}</b></td>
-                    <td><b>Date: {{dat}}</b></td>
+                    <td><b>Date: {{date}}</b></td>
                 </tr>
             </table>
         </div>
@@ -113,11 +113,48 @@
                 </b>
             </p>
             {%if qno1 > 0%}
-            <table>
+            <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px; padding: 50%;">
+                    <td style="width:90px; padding: 50%;">
                         <b>Q.1]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 50%;">
+                        (Marks {{i.marks}})<br><b>  [{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+            {%if qno1 > 0%}
+            <p style="text-align: center;"><b>OR</b></p>
+            <table style="border: 1px solid black;">
+                {%for i,j in or_fquestions1%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.2]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+
+            <br>
+            {%if qno2 > 0%}
+            <table style="border: 1px solid black;">
+                {%for i,j in fquestions2%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.3]  {{j}}</b>
                     </td>
                     <td style="padding: 50%;">
                         <b>{{i.question}}</b>
@@ -131,47 +168,11 @@
             {%endif%}
             <br>
             {%if qno2 > 0%}
+            <p style="text-align: center;"><b>OR</b></p>
             <table style="border: 1px solid black;">
-                {%for i,j in fquestions1%}
+                {%for i,j in fquestions2%}
                 <tr>
-                    <td style="width:70px; padding: 50%;">
-                        <b>Q.2]  {{j}}</b>
-                    </td>
-                    <td style="padding: 50%;">
-                        <b>{{i.question}}</b>
-                    </td>
-                    <td style="width:110px; padding: 40%;">
-                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
-                    </td>
-                </tr>
-                {%endfor%}
-            </table>
-            {%endif%}
-            <br>
-            {%if qno3 > 0%}
-            <table style="border: 1px solid black;">
-                {%for i,j in fquestions1%}
-                <tr>
-                    <td style="width:70px; padding: 50%;">
-                        <b>Q.3]  {{j}}</b>
-                    </td>
-                    <td style="padding: 50%;">
-                        <b>{{i.question}}</b>
-                    </td>
-                    <td style="width:110px; padding: 40%;">
-                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
-                    </td>
-                </tr>
-                {%endfor%}
-            </table>
-            <br>
-            {%endif%}
-            <br>
-            {%if qno4 > 0%}
-            <table style="border: 1px solid black;">
-                {%for i,j in fquestions1%}
-                <tr>
-                    <td style="width:70px; padding: 50%;">
+                    <td style="width:90px; padding: 50%;">
                         <b>Q.4]  {{j}}</b>
                     </td>
                     <td style="padding: 50%;">
@@ -185,13 +186,32 @@
             </table>
             <br>
             {%endif%}
+
             <br>
-            {%if qno5 > 0%}
+            {%if qno3 > 0%}
             <table style="border: 1px solid black;">
-                {%for i,j in fquestions1%}
+                {%for i,j in fquestions3%}
                 <tr>
-                    <td style="width:70px; padding: 50%;">
+                    <td style="width:90px; padding: 50%;">
                         <b>Q.5]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 50%;">
+                        (Marks {{i.marks}})<br><b>  [{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+            {%if qno3 > 0%}
+            <p style="text-align: center;"><b>OR</b></p>
+            <table style="border: 1px solid black;">
+                {%for i,j in or_fquestions3%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.6]  {{j}}</b>
                     </td>
                     <td style="padding: 50%;">
                         <b>{{i.question}}</b>
@@ -202,7 +222,79 @@
                 </tr>
                 {%endfor%}
             </table>
+            {%endif%}
             <br>
+
+            {%if qno4 > 0%}
+            <table style="border: 1px solid black;">
+                {%for i,j in fquestions4%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.7]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 50%;">
+                        (Marks {{i.marks}})<br><b>  [{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+            {%if qno4 > 0%}
+            <p style="text-align: center;"><b>OR</b></p>
+            <table style="border: 1px solid black;">
+                {%for i,j in or_fquestions4%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.8]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+            <br>
+            {%if qno5 > 0%}
+            <table style="border: 1px solid black;">
+                {%for i,j in fquestions5%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.9]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 50%;">
+                        (Marks {{i.marks}})<br><b>  [{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%endif%}
+            {%if qno5 > 0%}
+            <p style="text-align: center;"><b>OR</b></p>
+            <table style="border: 1px solid black;">
+                {%for i,j in or_fquestions5%}
+                <tr>
+                    <td style="width:90px; padding: 50%;">
+                        <b>Q.10]  {{j}}</b>
+                    </td>
+                    <td style="padding: 50%;">
+                        <b>{{i.question}}</b>
+                    </td>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
             {%endif%}
             <br>
         </div>
