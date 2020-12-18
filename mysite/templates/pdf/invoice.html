@@ -67,7 +67,7 @@
                     <b>Pimpri Chinchwad College of Engineering & Research, Ravet, Pune</b>
                 </td>
                 <th style="width:100px">
-                    Record No. {{rec_no}}
+                    Record No. <br> <b>ACAD/R/11</b>
                 </th>
                 </tr>
             </table>
@@ -113,18 +113,17 @@
                 </b>
             </p>
             {%if qno1 > 0%}
-            <p>Q.1 Answer the following</p>
-            <table style="border: 1px solid black;">
+            <table>
                 {%for i,j in fquestions1%}
                 <tr>
                     <td style="width:70px; padding: 50%;">
-                        <b>{{j}}</b>
+                        <b>Q.1]  {{j}}</b>
                     </td>
                     <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
                     <td style="width:110px; padding: 40%;">
-                        <b>{{i.marks}} marks</b><br>
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
                     </td>
                 </tr>
                 {%endfor%}
@@ -132,18 +131,17 @@
             {%endif%}
             <br>
             {%if qno2 > 0%}
-            <p>Q.2 Answer the following</p>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px">
-                        <b>{{j}}</b>
+                    <td style="width:70px; padding: 50%;">
+                        <b>Q.2]  {{j}}</b>
                     </td>
-                    <td padding: 50%;>
+                    <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px" padding: 50%;>
-                        <b>{{i.marks}} marks</b><br>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
                     </td>
                 </tr>
                 {%endfor%}
@@ -151,18 +149,17 @@
             {%endif%}
             <br>
             {%if qno3 > 0%}
-            <p>Q.3 Answer the following</p>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
-                    <td style="width:70px" padding: 50%;>
-                        <b>{{j}}</b>
+                    <td style="width:70px; padding: 50%;">
+                        <b>Q.3]  {{j}}</b>
                     </td>
-                    <td padding: 50%;>
+                    <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px; padding: 50%;">
-                        <b>{{i.marks}} marks</b><br>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
                     </td>
                 </tr>
                 {%endfor%}
@@ -171,18 +168,17 @@
             {%endif%}
             <br>
             {%if qno4 > 0%}
-            <p>Q.4 Answer the following</p>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
                     <td style="width:70px; padding: 50%;">
-                        <b>{{j}}</b>
+                        <b>Q.4]  {{j}}</b>
                     </td>
-                    <td padding: 50%;>
+                    <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px; padding: 50%;">
-                        <b>{{i.marks}} marks</b><br>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
                     </td>
                 </tr>
                 {%endfor%}
@@ -191,18 +187,17 @@
             {%endif%}
             <br>
             {%if qno5 > 0%}
-            <p>Q.5 Answer the following</p>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
                 <tr>
                     <td style="width:70px; padding: 50%;">
-                        <b>{{j}}</b>
+                        <b>Q.5]  {{j}}</b>
                     </td>
-                    <td padding: 50%;>
+                    <td style="padding: 50%;">
                         <b>{{i.question}}</b>
                     </td>
-                    <td style="width:100px; padding: 50%;">
-                        <b>{{i.marks}} marks</b><br>
+                    <td style="width:110px; padding: 40%;">
+                        (Marks {{i.marks}})<br><b>[{{i.co}},BT {{i.bt}}]</b>
                     </td>
                 </tr>
                 {%endfor%}

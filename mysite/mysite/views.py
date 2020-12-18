@@ -40,7 +40,6 @@ class GeneratePdf(View):
         term = request.GET.get('term')
         tmarks = request.GET.get('tmarks')
         subcode = request.GET.get('subcode')
-        rec_no = request.GET.get('rec_no')
         div = request.GET.get('div')
         ttime = request.GET.get('ttime')
 
@@ -279,16 +278,15 @@ class GeneratePdf(View):
         #     final_list1.append(k)
         #     z=z+1            
 
-        sub = request.GET.get('subject')
-        ayear = request.GET.get('ayear')
-        dep = request.GET.get('dep')
-        test_name = request.GET.get('test_name')
-        term = request.GET.get('term')
-        tmarks = request.GET.get('tmarks')
-        subcode = request.GET.get('subcode')
-        rec_no = request.GET.get('rec_no')
-        div = request.GET.get('div')
-        ttime = request.GET.get('ttime')
+        # sub = request.GET.get('subject')
+        # ayear = request.GET.get('ayear')
+        # dep = request.GET.get('dep')
+        # test_name = request.GET.get('test_name')
+        # term = request.GET.get('term')
+        # tmarks = request.GET.get('tmarks')
+        # subcode = request.GET.get('subcode')
+        # div = request.GET.get('div')
+        # ttime = request.GET.get('ttime')
 
         data = {
             "sub":sub,
@@ -299,7 +297,6 @@ class GeneratePdf(View):
             "term":term,
             "tmarks":tmarks,
             "subcode":subcode,
-            "rec_no":rec_no,
             "div":div,
             "ttime":ttime,
             "year":Year,
@@ -424,11 +421,10 @@ def addQuestion(request):
 def addSuccess(request):
     questionBan = questionBank()
     questionBan.question = request.POST.get('question', 'default')
-    questionBan.chapter = request.POST.get('chapter', 0)
-    questionBan.difficulty = request.POST.get('difficulty', 0)
+    questionBan.bt = request.POST.get('bt', 0)
+    questionBan.co = request.POST.get('co', 'NULL')
     questionBan.marks = request.POST.get('marks', 0)
     questionBan.unit = request.POST.get('unit',0)
-    questionBan.sem = request.POST.get('sem', 0)
     questionBan.year = request.POST.get('year', 0)
     questionBan.subname = request.POST.get('subname', 'default')
     questionBan.save()
@@ -441,27 +437,27 @@ def delete(request):
 def deleteQuestion(request):
     year = request.POST.get('year')
     subname = request.POST.get('subname')
-    chapter = request.POST.get('chapter')
+    unit = request.POST.get('unit')
 
-    if year=='' and subname=='' and chapter=='':
+    if year=='' and subname=='' and unit=='':
         a = questionBank.objects.all()
     elif year=='' and subname=='':
-        a = questionBank.objects.filter(chapter=chapter)
-    elif subname=='' and chapter=='':
+        a = questionBank.objects.filter(unit=unit)
+    elif subname=='' and unit=='':
         a = questionBank.objects.filter(year=year)
-    elif year=='' and chapter=='':
+    elif year=='' and unit=='':
         a = questionBank.objects.filter(subname=subname)
-    elif chapter=='':
+    elif unit=='':
         a = questionBank.objects.filter(year=year, subname=subname)
     elif year=='':
-        a = questionBank.objects.filter(subname=subname, chapter=chapter)
+        a = questionBank.objects.filter(subname=subname, unit=unit)
     elif subname=='L':
-        a = questionBank.objects.filter(year=year, chapter=chapter)
+        a = questionBank.objects.filter(year=year, unit=unit)
     else:
-        a = questionBank.objects.filter(year=year, subname=subname, chapter=chapter)
+        a = questionBank.objects.filter(year=year, subname=subname, unit=unit)
 
     print(a)
-    params = {"a":a, "subname":subname, "year": year, "chapter":chapter}
+    params = {"a":a, "subname":subname, "year": year, "unit":unit}
     return render(request, 'deleteQuestion.html', params)
 
 def deleteSuccess(request):
@@ -483,7 +479,7 @@ def displayQuestionBank(request):
 
 # def generatePaper2(request):
 #     subname = request.POST.get('subname')
-#     chapterstoinclude = request.POST.get('chapter')
+#     chapterstoinclude = request.POST.get('unit')
 #     marks = request.POST.get('marks')
 #     time = request.POST.get('time')
 #     totalQuestions = request.POST.get('ques')
