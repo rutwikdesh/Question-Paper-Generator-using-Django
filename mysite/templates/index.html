@@ -15,46 +15,45 @@
 
 <body>
     <img src="{% static 'img/logo.png'%}" alt="PCET Logo" width="100" height="100">
-    <p
+    <b
         style="font-size: 16px;padding: 0;margin: 10px 0 0; letter-spacing: 0; line-height: 22px;color: #005bab;font-weight: 700;">
-        PIMPRI CHINCHWAD EDUCATION TRUST'S <br>
-        <img src="{% static 'img/pccoer-logo.png'%}" alt="PCET Logo" width="100" height="100">
+        PIMPRI CHINCHWAD EDUCATION TRUST'S 
+        <img src="{% static 'img/pccoer-logo.png'%}" alt="PCET Logo" width="100" height="100"><br>
         PIMPRI CHINCHWAD COLLEGE OF ENGINEERING & RESEARCH
-    </p>
+    </b>
     <div class="row title">
         <h1>Question Paper Generator</h1>
     </div>
     <br>
+    <form action="logout" method="POST">
+        {%csrf_token%}
+        <label for="logout">logout</label>
+        <button type="submit" name="logout" id="logout" class="btn btn-outline-dark">Submit</button>
+    </form>
 
     <div id="homePage" class="row justify-content-center">
-
-        <div class="col-6 d-grid gap-4">
-            <form action="generatePaper" class="row align-items-center" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-dark btn-lg">Generate Paper</button>
-            </form>
-            <form class="row align-items-center" action="admin" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-dark btn-lg">Add Questions</button>
-            </form>
-            <form class="row align-items-center" action="delete" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-dark btn-lg">Delete Question</button>
-            </form>
-            <form action="login" method="POST">
-                {% csrf_token %}
-                <div class=form-group>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Choose a unique username" name="username">
-                </div>
-
-            <!-- <div class=form-group>
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" name="password">
-            </div>
-            <button type="submit">Submit</button>
-            </form> -->
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
         </div>
+        {% endfor %}
+            <div class="col-6 d-grid gap-4">
+                <form action="generatePaper" class="row align-items-center" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Generate Paper</button>
+                </form>
+                <form class="row align-items-center" action="admin" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Add Questions</button>
+                </form>
+                <form class="row align-items-center" action="delete" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Delete Question</button>
+                </form>
+            </div>
     </div>
 
     </div>

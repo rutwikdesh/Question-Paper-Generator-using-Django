@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    {%load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QPD-Login</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{%static 'css/style2.css'%}"/> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{%static 'css/style4.css'%}">
+    <link rel="stylesheet" href="static/css/shreestyle.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <title>Welcome to QPG</title>
 </head>
-
 <body>
-    <form action="login" method="POST">
-        {% csrf_token %}
+    <form action="loginpage" method="POST">
+        {%csrf_token%}
         {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -27,18 +23,9 @@
             {{ message }}
         </div>
         {% endfor %}
-        <div class=form-group>
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username" name="username">   
-        </div>
-
-        <div class=form-group>
-            <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password">
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <h1>Welcome to QPG</h1>
+        <label for="login">Login to continue</label>
+        <button type="submit" class="btn btn-primary">Login Here</button>
     </form>
 </body>
-
 </html>

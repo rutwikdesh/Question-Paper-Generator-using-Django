@@ -2,15 +2,26 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from loginapp.models import questionBank
+from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from mysite.utils import render_to_pdf
-from django.contrib import messages
 import random
 import datetime
+from django.contrib import messages
 
 
-def login(request):
-   if request.method == "POST":
+def home(request):
+    if request.method == "POST":
+        logout(request)
+        messages.success(request, "Succesfully Logged out!")
+        return redirect('home')
+    return render(request, 'home.html')
+
+def loginpage(request):
+    return render(request, 'login.html')
+
+def view_login(request):
+    if request.method == "POST":
         loginusername = request.POST['username']
         loginpass = request.POST['password']
 
@@ -20,23 +31,24 @@ def login(request):
             login(request, user)
             messages.success(request, "Successfully Logged in!")
             return redirect('index')
-        else:
-            messages.success(request, "Login Failed! Please Try Again")
-            return redirect('index')
 
+    messages.warning(request, "Login Failed! Please Try Again")
+    return render(request, 'login.html')
 
-def logout(request):
+@login_required(login_url='home')
+def logout_user(request):
     if request.method == "POST":
-        loginusername = request.POST['username']
-        loginpass = request.POST['password']
+        logout(request)
+        messages.success(request, "Succesfully Logged out!")
+        return redirect('home')
 
-
+@login_required(login_url='login')
 def intermediate(request):
     nques = request.POST.get('nques')
     params = {"nques": nques}
     return render(request, 'intermediate.html', params)
 
-
+@login_required(login_url='login')
 def intermediate2(request):
     nq1 = request.POST.get('nq1')
     nq2 = request.POST.get('nq2')
@@ -45,7 +57,6 @@ def intermediate2(request):
     nq5 = request.POST.get('nq5')
     params = {"nq1": nq1, "nq2": nq2, "nq3": nq3, "nq4": nq4, "nq5":nq5}
     return render(request, 'intermediate2.html', params)
-
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
@@ -383,20 +394,20 @@ class GeneratePdf(View):
         pdf = render_to_pdf('pdf/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
 
-
+@login_required(login_url='login')
 def index(request):
     return render(request, 'index.html')
 
-
+@login_required(login_url='login')
 def generatePaper(request):
     print('GenertePaperRequest')
     return render(request, 'generatePaper.html')
 
-
+@login_required(login_url='login')
 def delete(request):
     return render(request, 'delete.html')
 
-
+@login_required(login_url='login')
 def deleteQuestion(request):
     year = request.POST.get('year')
     subname = request.POST.get('subname')
@@ -423,7 +434,7 @@ def deleteQuestion(request):
     params = {"a": a, "subname": subname, "year": year, "unit": unit}
     return render(request, 'deleteQuestion.html', params)
 
-
+@login_required(login_url='login')
 def deleteSuccess(request):
     id = request.GET.get('idtodelete')
     questionBank.objects.filter(id=id).delete()
