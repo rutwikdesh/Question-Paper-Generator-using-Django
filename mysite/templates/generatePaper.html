@@ -8,12 +8,14 @@
     <!-- <link rel="stylesheet" href="{%static 'css/style2.css'%}"/> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{%static 'css/style4.css'%}"/>
+    <link rel="stylesheet" href="static/css/style4.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="middle">
+    <h3>Design Your Paper</h3>
+
+    <div class="center">
         <form action="intermediate.html" method="POST">
             {% csrf_token %}
             <!-- <p>Select Year:</p>
@@ -55,8 +57,8 @@
                 <option value="DM">
             </datalist><br> -->
 
-            <label for="nques">Total No. of Questions</label><br>
-            <input type="number" id="nques" name="nques"><br>
+            <label for="nques">Enter Total No. of Questions</label><br>
+            <input type="number" id="nques" name="nques" placeholder="No. of questions"><br>
 <!-- 
             <br>
             <br><br><br>
@@ -81,8 +83,8 @@
             <label>Enter the no. of Questions in Q8:</label><br>
             <input type="number" id="nq8" name="nq8"><br> -->
 
-            <button class="glow-on-hover" type="submit">Generate Paper</button>
-            <input type="reset">
+            <button  type="submit" class="btn btn-primary">Generate Paper</button>
+            <input type="reset" class="btn btn-primary">
         </form>
     </div>
 </body>

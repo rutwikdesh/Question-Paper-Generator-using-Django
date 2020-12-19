@@ -81,6 +81,7 @@
                     <th>Term: {{term}}</th>
                 </tr>
             </table>
+            <hr>
 
             <table class="table3">
                 <tr>
@@ -101,6 +102,7 @@
                 </tr>
             </table>
         </div>
+        <hr>
 
         <div class="details">
             <p>
@@ -112,6 +114,7 @@
                     </i>
                 </b>
             </p>
+            <hr>
             {%if qno1 > 0%}
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions1%}
@@ -147,9 +150,9 @@
                 {%endfor%}
             </table>
             {%endif%}
-
-            <br>
+            
             {%if qno2 > 0%}
+            <br>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions2%}
                 <tr>
@@ -166,7 +169,6 @@
                 {%endfor%}
             </table>
             {%endif%}
-            <br>
             {%if qno2 > 0%}
             <p style="text-align: center;"><b>OR</b></p>
             <table style="border: 1px solid black;">
@@ -186,9 +188,9 @@
             </table>
             <br>
             {%endif%}
-
-            <br>
+  
             {%if qno3 > 0%}
+            <br>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions3%}
                 <tr>
@@ -223,9 +225,9 @@
                 {%endfor%}
             </table>
             {%endif%}
-            <br>
 
             {%if qno4 > 0%}
+            <br>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions4%}
                 <tr>
@@ -260,8 +262,8 @@
                 {%endfor%}
             </table>
             {%endif%}
-            <br>
             {%if qno5 > 0%}
+            <br>
             <table style="border: 1px solid black;">
                 {%for i,j in fquestions5%}
                 <tr>
@@ -296,6 +298,7 @@
                 {%endfor%}
             </table>
             {%endif%}
+            <p>************************************************************END***********************************************************</p>
             <br>
         </div>
     </body>

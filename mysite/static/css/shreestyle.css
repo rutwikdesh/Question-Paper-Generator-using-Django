@@ -1,0 +1,30 @@
+.title{
+  text-align: center;
+font-family: 'Playfair Display', serif;
+}
+body{
+  background-color: #cbf1f5;
+
+
+}
+
+#generate-paper{
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#homePage{
+  border:solid black 2px;
+  border-radius: 4px;
+  padding: 12px;
+  background-color: #eff8ff;
+}
+
+.middle{
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: flex-start;
+}
