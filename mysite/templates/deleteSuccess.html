@@ -1,34 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Success: Questions deleted Successfully</title>
     <style>
-      
-body {
-  background: #cbf1f5;
-}
+        body {
+            background: #cbf1f5;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto ">
-          <div class="card card-body text-center mt-5 border border-dark">
-            <h1 class="heading display-5 pb-3">SUCCESS !</h1>
-                <p class="text-center"  >Your Questions have been deleted Successfully</p>
-                <br>
-                <form method="POST" action="/">
-                    {%csrf_token%}
-                    <button type="submit" class="btn btn-outline-dark">Home</button>
-                </form>
-                
+        <div class="row">
+            <div class="col-md-6 mx-auto ">
+                <div class="card card-body text-center mt-5 border border-dark">
+                    <h1 class="heading display-5 pb-3">SUCCESS !</h1>
+                    <p class="text-center">Your Questions have been deleted Successfully</p>
+                    <br>
+                    <form method="POST" action="/">
+                        {%csrf_token%}
+                        <button type="submit" class="btn btn-outline-dark">Home</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</body>
 
-   </body>
-   </html>        
-            
+</html>

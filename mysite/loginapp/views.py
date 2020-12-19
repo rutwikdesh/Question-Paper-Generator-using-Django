@@ -5,8 +5,4 @@ import random
 
 
 def index(request):
-    # questions = Question.objects.all()
-    # params = {'questions':questions}
-    # print(questions[1].ques)
-    # return render(request, 'question.html', params)
     return HttpResponse('Hi')
