@@ -15,15 +15,15 @@
 
 <body>
     <div class="row title">
-        <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Question Paper Generator</h1>
+        <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:maroon;">Question Paper Generator</h1>
     </div>
     <br>
     <form action="logout" method="POST">
         {%csrf_token%}
         <div style="text-align: right;margin: auto;">
-            <button type="submit" name="logout" id="logout" class="btn btn-info">Logout</button>
+            <button type="submit" name="logout" id="logout" class="btn btn-primary" style="margin-right: 4%;color:;">Logout</button><br>
         </div>
-        
+        <br>
     </form>
 
     <div id="homePage" class="row justify-content-center">
