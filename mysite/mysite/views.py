@@ -17,8 +17,10 @@ def home(request):
         return redirect('home')
     return render(request, 'home.html')
 
+
 def loginpage(request):
     return render(request, 'login.html')
+
 
 def view_login(request):
     if request.method == "POST":
@@ -35,6 +37,7 @@ def view_login(request):
     messages.warning(request, "Login Failed! Please Try Again")
     return render(request, 'login.html')
 
+
 @login_required(login_url='home')
 def logout_user(request):
     if request.method == "POST":
@@ -42,11 +45,13 @@ def logout_user(request):
         messages.success(request, "Succesfully Logged out!")
         return redirect('home')
 
+
 @login_required(login_url='login')
 def intermediate(request):
     nques = request.POST.get('nques')
     params = {"nques": nques}
     return render(request, 'intermediate.html', params)
+
 
 @login_required(login_url='login')
 def intermediate2(request):
@@ -55,8 +60,9 @@ def intermediate2(request):
     nq3 = request.POST.get('nq3')
     nq4 = request.POST.get('nq4')
     nq5 = request.POST.get('nq5')
-    params = {"nq1": nq1, "nq2": nq2, "nq3": nq3, "nq4": nq4, "nq5":nq5}
+    params = {"nq1": nq1, "nq2": nq2, "nq3": nq3, "nq4": nq4, "nq5": nq5}
     return render(request, 'intermediate2.html', params)
+
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
@@ -394,18 +400,22 @@ class GeneratePdf(View):
         pdf = render_to_pdf('pdf/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
 
+
 @login_required(login_url='login')
 def index(request):
     return render(request, 'index.html')
+
 
 @login_required(login_url='login')
 def generatePaper(request):
     print('GenertePaperRequest')
     return render(request, 'generatePaper.html')
 
+
 @login_required(login_url='login')
 def delete(request):
     return render(request, 'delete.html')
+
 
 @login_required(login_url='login')
 def deleteQuestion(request):
@@ -413,7 +423,7 @@ def deleteQuestion(request):
     subname = request.POST.get('subname')
     unit = request.POST.get('unit')
 
-    if year == '' and subname == '' and unit=='':
+    if year == '' and subname == '' and unit == '':
         a = questionBank.objects.all()
     elif year == '' and subname == '':
         a = questionBank.objects.filter(unit=unit)
@@ -433,6 +443,7 @@ def deleteQuestion(request):
     print(a)
     params = {"a": a, "subname": subname, "year": year, "unit": unit}
     return render(request, 'deleteQuestion.html', params)
+
 
 @login_required(login_url='login')
 def deleteSuccess(request):
