@@ -8,7 +8,7 @@ from mysite.utils import render_to_pdf
 import random
 import datetime
 from django.contrib import messages
-
+#
 
 def home(request):
     if request.method == "POST":
