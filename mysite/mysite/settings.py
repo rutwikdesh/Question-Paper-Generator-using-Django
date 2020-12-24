@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'questionBank',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'ntLvFmYhfe',
+        'USER': 'ntLvFmYhfe',
+        'PASSWORD': 'lz50uaCaVg',
+        'HOST':'remotemysql.com',
         'PORT': '3306',
     }
 }
