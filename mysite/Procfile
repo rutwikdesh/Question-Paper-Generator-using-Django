@@ -1,1 +1,1 @@
-web: gunicorn questionpapergen.wsgi --log-file -
+web: gunicorn loginapp.wsgi --log-file -
