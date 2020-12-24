@@ -24,7 +24,7 @@ SECRET_KEY = 'iindya3oub8n5+o_0vofa^6hdor029alzza745hq!%p*9lx&&0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','quespapergen.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','questionpapergen.herokuapp.com',]
 
 
 # Application definition
