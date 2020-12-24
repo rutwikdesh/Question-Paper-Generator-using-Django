@@ -24,7 +24,7 @@ SECRET_KEY = 'iindya3oub8n5+o_0vofa^6hdor029alzza745hq!%p*9lx&&0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []#'127.0.0.1','questionpapergen.herokuapp.com',]
+ALLOWED_HOSTS = ['127.0.0.1','questionpapergen.herokuapp.com',]
 
 
 # Application definition
@@ -138,7 +138,7 @@ USE_TZ = True
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
