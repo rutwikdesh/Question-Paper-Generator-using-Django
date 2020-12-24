@@ -38,7 +38,7 @@ def view_login(request):
     return render(request, 'login.html')
 
 
-@login_required(login_url='home')
+# @login_required(login_url='home')
 def logout_user(request):
     if request.method == "POST":
         logout(request)
@@ -46,14 +46,14 @@ def logout_user(request):
         return redirect('home')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def intermediate(request):
     nques = request.POST.get('nques')
     params = {"nques": nques}
     return render(request, 'intermediate.html', params)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def intermediate2(request):
     nq1 = request.POST.get('nq1')
     nq2 = request.POST.get('nq2')
@@ -401,23 +401,23 @@ class GeneratePdf(View):
         return HttpResponse(pdf, content_type='application/pdf')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def index(request):
     return render(request, 'index.html')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def generatePaper(request):
     print('GenertePaperRequest')
     return render(request, 'generatePaper.html')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def delete(request):
     return render(request, 'delete.html')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def deleteQuestion(request):
     year = request.POST.get('year')
     subname = request.POST.get('subname')
@@ -445,7 +445,7 @@ def deleteQuestion(request):
     return render(request, 'deleteQuestion.html', params)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def deleteSuccess(request):
     id = request.GET.get('idtodelete')
     questionBank.objects.filter(id=id).delete()
