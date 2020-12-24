@@ -17,7 +17,11 @@
 </head>
 
 <body>
-    <h3>List of Questions with ID</h3>
+    <form action="index" method="POST">
+        {% csrf_token %}
+        <button type="submit" style="position: absolute;" class="btn btn-info">Go to Home</button>
+    </form>
+    <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">List of Questions with ID</h3>
     <div class="center">
         <form action="deleteSuccess">
             <table>
