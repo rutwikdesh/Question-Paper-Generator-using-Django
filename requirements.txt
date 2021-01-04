@@ -1,5 +1,4 @@
 ﻿arabic-reshaper==2.1.1
-request==1.1
 asgiref==3.3.1
 autopep8==1.5.4
 backcall==0.2.0
