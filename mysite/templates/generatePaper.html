@@ -25,7 +25,7 @@
     <div class="center">
         <form action="intermediate.html" method="POST">
             {% csrf_token %}
-
+            <p style="color: red;">#Note: You can only add a max of 5 questions in your Question Paper</p>
             <label for="nques">Enter Total No. of Questions</label><br>
             <input type="number" id="nques" name="nques" placeholder="No. of questions"><br>
 

@@ -22,10 +22,12 @@
         <button type="submit" style="position: absolute;" class="btn btn-info">Go to Home</button>
     </form>
     <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add Sub-Questions</h3>
+    
 
     <div class="center">
         <form action="intermediate2.html" method="POST">
             {% csrf_token %}
+            <p style="color: red;">#Note: You can only add a max of 3 sub-questions for every question</p>
             <label for="nq1">Enter the no. of sub-questions in Question 1:</label>
             <input type="number" id="nq1" name="nq1"><br>
 
