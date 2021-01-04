@@ -8,7 +8,6 @@ class questionBank(models.Model):
     unit = models.IntegerField()
     year = models.IntegerField()
     subname = models.CharField(max_length=100)
-    flag = models.IntegerField()
 
     def __str__(self):
         return self.question

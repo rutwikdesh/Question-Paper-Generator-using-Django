@@ -67,6 +67,7 @@ class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
         print('GenertePaperRequest2')
         l = []
+        tmarks = 0
         dat = datetime.date.today().strftime("%d/%m/%Y")
 
         Year = request.GET.get('Year')
@@ -76,7 +77,6 @@ class GeneratePdf(View):
         dep = request.GET.get('dep')
         test_name = request.GET.get('test_name')
         term = request.GET.get('term')
-        tmarks = request.GET.get('tmarks')
         subcode = request.GET.get('subcode')
         div = request.GET.get('div')
         ttime = request.GET.get('ttime')
@@ -128,7 +128,6 @@ class GeneratePdf(View):
         if m1_1:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
-            a.update(flag=1)
             question = a[random.randrange(1, len(a))]
             fquestions1.append(tuple((question, my_list[ggs])))
             l.append(question)
@@ -138,6 +137,7 @@ class GeneratePdf(View):
             or_fquestions1.append(tuple((or_question, my_list[ggs])))
             l.append(or_question)
             ggs += 1
+            tmarks+=int(m1_1)
 
         if m1_2:
             a = questionBank.objects.filter(
@@ -156,20 +156,26 @@ class GeneratePdf(View):
                     l.append(or_question)
                     break
             ggs += 1
+            tmarks+=int(m1_2)
 
         if m1_3:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q1_3), marks=int(m1_3))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions1:
+                if question not in l:
                     fquestions1.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions1.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions1.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m1_1)
 
         qno1 = len(fquestions1)
 
@@ -177,6 +183,7 @@ class GeneratePdf(View):
 
         fquestions2 = []
         qno2 = []
+        l=[]
 
         or_fquestions2 = []
 
@@ -185,39 +192,52 @@ class GeneratePdf(View):
                 year=int(Year), subname=sub, unit=int(q2_1), marks=int(m2_1))
             question = a[random.randrange(1, len(a))]
             fquestions2.append(tuple((question, my_list[ggs])))
+            l.append(question)
             or_question = question
             while or_question == question:
                 or_question = a[random.randrange(1, len(a))]
             or_fquestions2.append(tuple((or_question, my_list[ggs])))
+            l.append(or_question)
             ggs += 1
+            tmarks+=int(m2_1)
 
         if m2_2:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q2_2), marks=int(m2_2))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions1:
+                if question not in l:
                     fquestions2.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions2.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions2.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m2_2)
 
         if m2_3:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q2_3), marks=int(m2_3))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions2:
+                if question not in l:
                     fquestions2.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions2.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions2.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m2_3)
 
         qno2 = len(fquestions2)
 
@@ -225,47 +245,61 @@ class GeneratePdf(View):
 
         fquestions3 = []
         qno3 = []
+        l=[]
 
         or_fquestions3 = []
 
         if m3_1:
             a = questionBank.objects.filter(
-                year=int(Year), subname=sub, unit=int(q1_1), marks=int(m1_1))
+                year=int(Year), subname=sub, unit=int(q3_1), marks=int(m3_1))
             question = a[random.randrange(1, len(a))]
             fquestions3.append(tuple((question, my_list[ggs])))
+            l.append(question)
             or_question = question
             while or_question == question:
                 or_question = a[random.randrange(1, len(a))]
             or_fquestions3.append(tuple((or_question, my_list[ggs])))
+            l.append(or_question)
             ggs += 1
+            tmarks+=int(m3_1)
 
         if m3_2:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q3_2), marks=int(m3_2))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions3:
+                if question not in l:
                     fquestions3.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions3.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions3.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m3_2)
 
         if m3_3:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q3_3), marks=int(m3_3))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions3:
+                if question not in l:
                     fquestions3.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions3.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions3.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m3_3)
 
         qno3 = len(fquestions3)
 
@@ -273,6 +307,7 @@ class GeneratePdf(View):
 
         fquestions4 = []
         qno4 = []
+        l=[]
 
         or_fquestions4 = []
 
@@ -281,39 +316,52 @@ class GeneratePdf(View):
                 year=int(Year), subname=sub, unit=int(q4_1), marks=int(m4_1))
             question = a[random.randrange(1, len(a))]
             fquestions4.append(tuple((question, my_list[ggs])))
+            l.append(question)
             or_question = question
             while or_question == question:
                 or_question = a[random.randrange(1, len(a))]
             or_fquestions4.append(tuple((or_question, my_list[ggs])))
+            l.append(or_question)
             ggs += 1
+            tmarks+=int(m4_1)
 
         if m4_2:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q4_2), marks=int(m4_2))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions4:
+                if question not in l:
                     fquestions4.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions4.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions4.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m4_2)
 
         if m4_3:
             a = questionBank.objects.filter(
-                year=int(Year), subname=sub, unit=int(q4_3), marks=int(m1_3))
+                year=int(Year), subname=sub, unit=int(q4_3), marks=int(m4_3))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions4:
-                    fquestions4.append(question)
+                if question not in l:
+                    fquestions4.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions4.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions4.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m4_3)
 
         qno4 = len(fquestions4)
 
@@ -321,6 +369,7 @@ class GeneratePdf(View):
 
         fquestions5 = []
         qno5 = []
+        l=[]
 
         or_fquestions5 = []
 
@@ -329,39 +378,52 @@ class GeneratePdf(View):
                 year=int(Year), subname=sub, unit=int(q5_1), marks=int(m5_1))
             question = a[random.randrange(1, len(a))]
             fquestions5.append(tuple((question, my_list[ggs])))
+            l.append(question)
             or_question = question
             while or_question == question:
                 or_question = a[random.randrange(1, len(a))]
             or_fquestions5.append(tuple((or_question, my_list[ggs])))
+            l.append(or_question)
             ggs += 1
+            tmarks+=int(m5_1)
 
         if m5_2:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q5_2), marks=int(m5_2))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions5:
+                if question not in l:
                     fquestions5.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions5.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions5.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m5_2)
 
         if m5_3:
             a = questionBank.objects.filter(
                 year=int(Year), subname=sub, unit=int(q5_3), marks=int(m5_3))
             while(1):
                 question = a[random.randrange(1, len(a))]
-                if question not in fquestions5:
+                if question not in l:
                     fquestions5.append(tuple((question, my_list[ggs])))
+                    l.append(question)
                     break
-            or_question = question
-            while or_question == question:
+
+            while(1):
                 or_question = a[random.randrange(1, len(a))]
-            or_fquestions5.append(tuple((or_question, my_list[ggs])))
+                if or_question not in l:
+                    or_fquestions5.append(tuple((or_question, my_list[ggs])))
+                    l.append(or_question)
+                    break
             ggs += 1
+            tmarks+=int(m5_3)
 
         qno5 = len(fquestions5)
 

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='questionbank',
             name='flag',
-            field=models.IntegerField(default=0),
+            field=models.IntegerField(default=int(0)),
             preserve_default=False,
         ),
     ]
