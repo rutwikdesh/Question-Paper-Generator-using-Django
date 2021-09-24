@@ -87,27 +87,27 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ntLvFmYhfe',
-        'USER': 'ntLvFmYhfe',
-        'PASSWORD': 'lz50uaCaVg',
-        'HOST':'remotemysql.com',
-        'PORT': '3306',
-    }
-}
-
 # DATABASES = {
-#     'default' : {
+#     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'questionBank',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST':'localhost',
+#         'NAME': 'ntLvFmYhfe',
+#         'USER': 'ntLvFmYhfe',
+#         'PASSWORD': 'lz50uaCaVg',
+#         'HOST':'remotemysql.com',
 #         'PORT': '3306',
 #     }
 # }
+
+DATABASES = {
+    'default' : {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'questionBank',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST':'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
